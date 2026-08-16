@@ -22,6 +22,14 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.10.2'
+
+      - name: Check Android project
+        run: gradle projects
+
+      - name: Show Android tasks
+        run: gradle :app:tasks --all
 
       - name: Build APK
         run: gradle :app:assembleDebug
